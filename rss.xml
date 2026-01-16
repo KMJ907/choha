@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>초하금속</title>
+    <link>https://cho-ha.kro.kr/</link>
+    <description>금속 가공 및 제작 전문 초하금속 공식 홈페이지입니다.</description>
+    <language>ko</language>
+    <item>
+      <title>초하금속 홈페이지 오픈</title>
+      <link>https://cho-ha.kro.kr/</link>
+      <description>초하금속 공식 홈페이지에 오신 것을 환영합니다.</description>
+      <pubDate>Fri, 16 Jan 2026 00:00:00 +0900</pubDate>
+    </item>
+  </channel>
+</rss>
