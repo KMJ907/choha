@@ -25,34 +25,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #fff; color: var(--text-dark); overflow-x: hidden; }
-
-        /* 팝업 모달 스타일 (닫기 불가) */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85); display: flex; justify-content: center; align-items: center;
-            z-index: 9999; backdrop-filter: blur(10px);
-        }
-        .modal-content {
-            background: #fff; padding: 40px; border-radius: 20px; text-align: center;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5); max-width: 420px; width: 90%;
-            border-top: 10px solid var(--main-blue); animation: fadeIn 0.4s ease-out;
-        }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        .modal-content i { font-size: 60px; color: var(--accent); margin-bottom: 25px; }
-        .modal-content h2 { margin-bottom: 15px; color: var(--main-blue); font-size: 1.8rem; }
-        .modal-content p { color: #555; margin-bottom: 30px; line-height: 1.6; word-break: keep-all; }
-        
-        .modal-btn-group { display: flex; flex-direction: column; gap: 10px; }
-        .modal-call-btn { 
-            display: block; background: var(--main-blue); color: white; padding: 15px; border-radius: 10px;
-            text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s;
-        }
-        .modal-kakao-btn {
-            display: block; background: var(--kakao-color); color: #3C1E1E; padding: 15px; border-radius: 10px;
-            text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s;
-        }
-        .modal-call-btn:hover, .modal-kakao-btn:hover { opacity: 0.9; transform: scale(1.02); }
+        body { background-color: #fff; color: var(--text-dark); overflow-x: auto; }
 
         /* Navigation */
         nav {
@@ -60,8 +33,11 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 5%; z-index: 1000; border-bottom: 1px solid #ddd;
         }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--main-blue); cursor: pointer; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--main-blue); cursor: pointer; text-decoration: none; }
+        .logo-sub {font-size: 0.6em;   /* 작게 */margin: 0 4px;color: #888;        /* 연한 색 (원하면 변경) */vertical-align: middle;}
+
         .nav-links a { margin-left: 25px; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--point-blue); }
 
         /* Hero Section */
         .hero {
@@ -73,29 +49,42 @@
         }
         .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; word-break: keep-all; }
         .hero p { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; }
+        .cta-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        
+        .btn { padding: 15px 35px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-secondary { background: #fff; color: var(--main-blue); }
+        .btn-kakao { background: var(--kakao-color); color: #3C1E1E; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        /* Sections & Cards */
+        /* Sections */
         section { padding: 100px 10%; }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 2.5rem; color: var(--main-blue); margin-bottom: 10px; }
         .section-title div { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: #f9f9f9; padding: 40px; border-radius: 15px; border: 1px solid #eee; }
-        .card i { font-size: 40px; color: var(--point-blue); margin-bottom: 20px; }
 
-        /* Contact Section */
+        /* Grid & Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #f9f9f9; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: 0.3s; }
+        .card:hover { border-color: var(--point-blue); background: #fff; }
+        .card i { font-size: 40px; color: var(--point-blue); margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; font-size: 1.5rem; color: var(--main-blue); }
+        .card ul { list-style: none; color: #666; }
+        .card ul li { margin-bottom: 8px; position: relative; padding-left: 15px; }
+        .card ul li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+
+        /* Contact Form */
         .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
         .info-item { display: flex; align-items: center; margin-bottom: 20px; }
         .info-item i { width: 40px; height: 40px; background: var(--main-blue); color: #fff; 
                        border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
         form { display: flex; flex-direction: column; gap: 15px; }
         input, textarea { padding: 15px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
-        .btn-primary { background: var(--main-blue); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
         /* Floating Buttons */
         .floating-contact { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
         .float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-                     color: white; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; }
+                     color: white; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
         .float-btn.kakao { background: var(--kakao-color); color: #3C1E1E; }
         .float-btn.phone { background: #2ecc71; }
 
@@ -104,29 +93,16 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .contact-container { grid-template-columns: 1fr; }
+            section { padding: 70px 5%; }
         }
     </style>
 </head>
-<body id="body">
-
-    <div id="working-modal" class="modal-overlay">
-        <div class="modal-content">
-            <i class="fas fa-tools"></i>
-            <h2>사이트 제작 중</h2>
-            <p>
-                현재 <strong>초하금속</strong> 공식 웹사이트의 완성도를 높이기 위해 작업 중입니다.<br><br>
-                문의는 아래 <strong>전화</strong> 또는 <strong>카카오톡</strong>으로 부탁드립니다.
-            </p>
-            <div class="modal-btn-group">
-                <a href="tel:010-9322-0989" class="modal-call-btn"><i class="fas fa-phone"></i> 담당자 전화 연결</a>
-                <a href="https://qr.kakao.com/talk/I80fOKDSRthUA0sbB50ba9MfDOU-" target="_blank" class="modal-kakao-btn"><i class="fas fa-comment"></i> 카카오톡 상담 요청</a>
-            </div>
-        </div>
-    </div>
+<body>
 
     <nav>
-        <div class="logo">CHOHA METALS</div>
-        <div class="nav-links">
+<a href="#" class="logo">
+    CHO<span class="logo-sub">초경</span>HA<span class="logo-sub">하이스</span> METALS
+</a>        <div class="nav-links">
             <a href="#about">회사강점</a>
             <a href="#items">매입품목</a>
             <a href="#contact">매입문의</a>
@@ -136,8 +112,10 @@
     <section class="hero">
         <h1>버려지는 초경·하이스<br>업계 최고가로 삽니다</h1>
         <p>투명한 계량, 당일 정산, 전국 어디든 찾아가는 초하금속입니다.</p>
-        <div style="display: flex; gap: 10px;">
-            <a href="tel:010-9322-0989" style="background: var(--accent); color: #000; padding: 15px 30px; border-radius: 8px; font-weight: bold; text-decoration: none;">전화 상담</a>
+        <div class="cta-group">
+            <a href="tel:010-9322-0989" class="btn btn-primary"><i class="fas fa-phone"></i> 전화 상담</a>
+            <a href="https://qr.kakao.com/talk/I80fOKDSRthUA0sbB50ba9MfDOU-" target="_blank" class="btn btn-kakao"><i class="fas fa-comment"></i> 카톡 문의</a>
+            <a href="#contact" class="btn btn-secondary">온라인 견적</a>
         </div>
     </section>
 
@@ -150,17 +128,53 @@
             <div class="card">
                 <i class="fas fa-coins"></i>
                 <h3>최고 시세 반영</h3>
-                <p>국제 금속 시세를 실시간 반영하여 최적의 매입가를 제시합니다.</p>
+                <p>국제 금속 시세를 실시간 반영하여 고객님께 최적의 매입가를 제시합니다.</p>
             </div>
             <div class="card">
                 <i class="fas fa-truck"></i>
-                <h3>전국 출장 서비스</h3>
-                <p>수도권 및 지방 공단 어디든 당일 방문 가능합니다.</p>
+                <h3>전국 택배 가능</h3>
+                <p>예약시 경남, 경북, 울산, 대구 등 지방 공단 어디든 수량이 있다면 예약 출장 가능합니다.</p>
             </div>
             <div class="card">
                 <i class="fas fa-scale-balanced"></i>
                 <h3>정직한 계량</h3>
-                <p>정밀 저울로 현장에서 투명하게 직접 계량합니다.</p>
+                <p>0.1g의 오차도 허용하지 않는 정밀 저울로 현장에서 직접 계량합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="items" style="background-color: #f4f7fa;">
+        <div class="section-title">
+            <h2>매입 품목 안내</h2>
+            <div></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>폐초경 (Carbide)</h3>
+                <ul>
+                    <li>인써트팁 (밀링/선반용)</li>
+                    <li>초경 엔드밀, 드릴, 리머 등..</li>
+                    <li>초경 덩어리(소재 덩어리)</li>
+                    <li>써메트, 로타리바 등..</li>
+                    <li>초경 슬러지(가루)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>폐하이스 (HSS)</h3>
+                <ul>
+                    <li>하이스 탭, 드릴, 엔드밀</li>
+                    <li>코발트 하이스(Co 5%, 8%)</li>
+                    <li>하이스 바이트, 호브 커터</li>
+                    <li>슬리팅 소 (Slitting Saw)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>특수금속 및 공구</h3>
+                <ul>
+                    <li>인코넬, 티타늄, 구리(동) 등</li>
+                    <li>사용 가능한 미사용 신품 공구</li>
+                    <li>공장 정리 폐쇄 공구 일괄 매입</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -172,46 +186,33 @@
         </div>
         <div class="contact-container">
             <div class="contact-info">
+                <h3>상담 시간 내 항시 대기</h3>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
                     <div><strong>대표 번호</strong><br>010-9322-0989</div>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
-                    <div><strong>평일/토요일</strong><br>08:00 - 20:00</div>
+                    <div><strong>평일/토요일</strong><br>08:00 - 22:00</div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-comment"></i>
+                    <div><strong>카카오톡</strong><br>아이디로 추가 후 문의 가능</div>
                 </div>
             </div>
             <form id="contact-form">
                 <input type="text" name="user_name" placeholder="성함 또는 업체명" required>
                 <input type="tel" name="user_tel" placeholder="연락처" required>
-                <textarea name="message" rows="5" placeholder="매입 품목 및 수량을 적어주세요." required></textarea>
-                <button type="submit" class="btn-primary">견적 요청하기</button>
+                <textarea name="message" rows="5" placeholder="매입 희망 품목 및 수량을 적어주세요." required></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">견적 요청하기</button>
             </form>
         </div>
     </section>
 
-    <footer>
-        <p>상호: 초하금속 | 대표: 박초하 | 사업자번호: 준비중</p>
-        <p style="margin-top: 15px; opacity: 0.6;">&copy; 2024 초하금속. All Rights Reserved.</p>
-    </footer>
-
     <div class="floating-contact">
-        <a href="https://qr.kakao.com/talk/YOUR_KAKAO_ID_LINK" target="_blank" class="float-btn kakao"><i class="fas fa-comment"></i></a>
+        <a href="https://qr.kakao.com/talk/I80fOKDSRthUA0sbB50ba9MfDOU-" target="_blank" class="float-btn kakao"><i class="fas fa-comment"></i></a>
         <a href="tel:010-9322-0989" class="float-btn phone"><i class="fas fa-phone"></i></a>
     </div>
 
-    <script>
-        // 스크롤 고정
-        window.onload = function() {
-            document.body.style.overflow = 'hidden';
-        }
-
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('견적 문의가 정상적으로 접수되었습니다.');
-            this.reset();
-        });
-    </script>
 </body>
 </html>
-
