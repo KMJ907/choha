@@ -1,218 +1,312 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>초하금속 - 폐초경·하이스 최고가 매입 전문</title>
-    
-    <meta name="description" content="폐초경, 인써트팁, 엔드밀, 하이스 등 특수금속 전국 최고가 정직한 매입 전문 초하금속입니다.">
-    <meta property="og:title" content="초하금속">
-    <meta property="og:description" content="금속 제작 및 가공 전문 기업, 초하금속입니다.">
-    <meta property="og:url" content="https://cho-ha.kro.kr">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>초하금속 - 폐초경·하이스 최고가 매입 전문</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<meta name="description" content="폐초경, 인써트팁, 엔드밀, 하이스 등 특수금속 전국 최고가 정직한 매입 전문 초하금속입니다.">
+<meta property="og:title" content="초하금속">
+<meta property="og:description" content="금속 제작 및 가공 전문 기업, 초하금속입니다.">
+<meta property="og:url" content="https://cho-ha.kro.kr">
 
-    <style>
-        :root {
-            --main-blue: #0A2647;
-            --point-blue: #144272;
-            --accent: #FFD700;
-            --kakao-color: #FEE500;
-            --text-dark: #222;
-            --text-light: #f4f4f4;
-        }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #fff; color: var(--text-dark); overflow-x: auto; }
+<style>
+:root {
+    --main-blue: #0A2647;
+    --point-blue: #144272;
+    --accent: #FFD700;
+    --kakao-color: #FEE500;
+    --text-dark: #222;
+}
 
-        /* Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95);
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; z-index: 1000; border-bottom: 1px solid #ddd;
-        }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--main-blue); cursor: pointer; text-decoration: none; }
-        .logo-sub {font-size: 0.6em;   /* 작게 */margin: 0 4px;color: #888;        /* 연한 색 (원하면 변경) */vertical-align: middle;}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; scroll-behavior: smooth; }
+body { background-color: #fff; color: var(--text-dark); overflow-x: hidden; }
 
-        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: var(--point-blue); }
+/* NAV */
+nav {
+    position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; z-index: 1000; border-bottom: 1px solid #ddd;
+}
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--main-blue); text-decoration: none; }
+.logo-sub { font-size: 0.6em; margin: 0 4px; color: #888; }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh; background: linear-gradient(rgba(10, 38, 71, 0.8), rgba(10, 38, 71, 0.8)), 
-            url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; padding: 0 20px;
-        }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; word-break: keep-all; }
-        .hero p { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; }
-        .cta-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        
-        .btn { padding: 15px 35px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; cursor: pointer; border: none; }
-        .btn-primary { background: var(--accent); color: #000; }
-        .btn-secondary { background: #fff; color: var(--main-blue); }
-        .btn-kakao { background: var(--kakao-color); color: #3C1E1E; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.nav-links a { margin-left: 25px; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: var(--point-blue); }
 
-        /* Sections */
-        section { padding: 100px 10%; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; color: var(--main-blue); margin-bottom: 10px; }
-        .section-title div { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(10,38,71,0.85), rgba(10,38,71,0.85)),
+    url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover; background-position: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: white; text-align: center; padding: 0 20px;
+}
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; }
 
-        /* Grid & Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: #f9f9f9; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: 0.3s; }
-        .card:hover { border-color: var(--point-blue); background: #fff; }
-        .card i { font-size: 40px; color: var(--point-blue); margin-bottom: 20px; }
-        .card h3 { margin-bottom: 15px; font-size: 1.5rem; color: var(--main-blue); }
-        .card ul { list-style: none; color: #666; }
-        .card ul li { margin-bottom: 8px; position: relative; padding-left: 15px; }
-        .card ul li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+/* BUTTON */
+.btn { padding: 15px 35px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; border: none; }
+.btn-primary { background: var(--accent); color: #000; }
+.btn-kakao { background: var(--kakao-color); color: #3C1E1E; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        /* Contact Form */
-        .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
-        .info-item { display: flex; align-items: center; margin-bottom: 20px; }
-        .info-item i { width: 40px; height: 40px; background: var(--main-blue); color: #fff; 
-                       border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
-        form { display: flex; flex-direction: column; gap: 15px; }
-        input, textarea { padding: 15px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
+/* SECTION */
+section { padding: 100px 10%; }
+.section-title { text-align: center; margin-bottom: 60px; }
+.section-title h2 { font-size: 2.5rem; color: var(--main-blue); }
+.section-title div { width: 60px; height: 4px; background: var(--accent); margin: 10px auto; }
 
-        /* Floating Buttons */
-        .floating-contact { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
-        .float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-                     color: white; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
-        .float-btn.kakao { background: var(--kakao-color); color: #3C1E1E; }
-        .float-btn.phone { background: #2ecc71; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: #f9f9f9; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: 0.3s; }
+.card:hover { border-color: var(--point-blue); background: #fff; }
 
-        footer { background: var(--main-blue); color: white; padding: 50px 10% 20px; text-align: center; }
-        
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .contact-container { grid-template-columns: 1fr; }
-            section { padding: 70px 5%; }
-        }
-    </style>
+/* FLOAT */
+.floating-contact {
+    position: fixed; bottom: 30px; right: 30px;
+    display: flex; flex-direction: column; gap: 10px; z-index: 1000;
+}
+.float-btn {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.float-btn.kakao { background: var(--kakao-color); color: #3C1E1E; }
+.float-btn.phone { background: #2ecc71; }
+
+/* 고급 팝업 */
+.popup-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+}
+.popup-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 18px;
+    max-width: 520px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.popup-box h2 { color: var(--main-blue); margin-bottom: 10px; font-size: 1.5rem; }
+.popup-box p { font-size: 0.95rem; line-height: 1.6; color: #333; }
+
+.popup-btns { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+.popup-btns button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-close { background: #ddd; }
+.btn-today { background: var(--main-blue); color: #fff; }
+
+/* 오늘 방문자 표시 */
+#today-visitors {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.75);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    section { padding: 70px 5%; }
+}
+</style>
 </head>
+
 <body>
 
-    <nav>
+<!-- 공지 팝업 -->
+<div class="popup-bg" id="popup">
+<div class="popup-box">
+<h2>안녕하세요. 초하금속입니다.</h2>
+<p>
+현재 이 사이트는 <b>정식 공개 전 테스트 버전</b>으로 일부 기능 및 디자인이 미흡할 수 있습니다.<br>
+이용에는 문제가 없으며, 빠른 시일 내에 정식 버전으로 업데이트될 예정입니다.<br><br>
+불편을 드려 대단히 죄송하며, 초하금속을 믿고 찾아주셔서 진심으로 감사드립니다.
+</p>
+
+<div class="popup-btns">
+<button class="btn-close" onclick="closePopup()">닫기</button>
+<button class="btn-today" onclick="hideToday()">오늘 그만 보기</button>
+</div>
+</div>
+</div>
+
+<!-- NAV -->
+<nav>
 <a href="#" class="logo">
-    CHO<span class="logo-sub">초경</span>HA<span class="logo-sub">하이스</span> METALS
-</a>        <div class="nav-links">
-            <a href="#about">회사강점</a>
-            <a href="#items">매입품목</a>
-            <a href="#contact">매입문의</a>
-        </div>
-    </nav>
+CHO<span class="logo-sub">초경</span>HA<span class="logo-sub">하이스</span> METALS
+</a>
+<div class="nav-links">
+<a href="#about">회사강점</a>
+<a href="#items">매입품목</a>
+<a href="#report">사이트 건의</a>
+</div>
+</nav>
 
-    <section class="hero">
-        <h1>버려지는 초경·하이스<br>업계 최고가로 삽니다</h1>
-        <p>투명한 계량, 당일 정산, 전국 어디든 찾아가는 초하금속입니다.</p>
-        <div class="cta-group">
-            <a href="tel:010-9322-0989" class="btn btn-primary"><i class="fas fa-phone"></i> 전화 상담</a>
-            <a href="https://qr.kakao.com/talk/I80fOKDSRthUA0sbB50ba9MfDOU-" target="_blank" class="btn btn-kakao"><i class="fas fa-comment"></i> 카톡 문의</a>
-            <a href="#contact" class="btn btn-secondary">온라인 견적</a>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+<h1>버려지는 초경·하이스<br>업계 최고가로 삽니다</h1>
+<p>투명한 계량, 당일 정산, 전국 어디든 찾아가는 초하금속입니다.</p>
 
-    <section id="about">
-        <div class="section-title">
-            <h2>왜 초하금속인가?</h2>
-            <div></div>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-coins"></i>
-                <h3>최고 시세 반영</h3>
-                <p>국제 금속 시세를 실시간 반영하여 고객님께 최적의 매입가를 제시합니다.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-truck"></i>
-                <h3>전국 택배 가능</h3>
-                <p>예약시 경남, 경북, 울산, 대구 등 지방 공단 어디든 수량이 있다면 예약 출장 가능합니다.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-scale-balanced"></i>
-                <h3>정직한 계량</h3>
-                <p>0.1g의 오차도 허용하지 않는 정밀 저울로 현장에서 직접 계량합니다.</p>
-            </div>
-        </div>
-    </section>
+<div class="cta-group">
+<a href="tel:010-9322-0989" class="btn btn-primary"><i class="fas fa-phone"></i> 전화 상담</a>
+<a href="https://qr.kakao.com/talk/I80fOKDSRthUA0sbB50ba9MfDOU-" target="_blank" class="btn btn-kakao"><i class="fas fa-comment"></i> 카톡 문의</a>
+</div>
+</section>
 
-    <section id="items" style="background-color: #f4f7fa;">
-        <div class="section-title">
-            <h2>매입 품목 안내</h2>
-            <div></div>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <h3>폐초경 (Carbide)</h3>
-                <ul>
-                    <li>인써트팁 (밀링/선반용)</li>
-                    <li>초경 엔드밀, 드릴, 리머 등..</li>
-                    <li>초경 덩어리(소재 덩어리)</li>
-                    <li>써메트, 로타리바 등..</li>
-                    <li>초경 슬러지(가루)</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>폐하이스 (HSS)</h3>
-                <ul>
-                    <li>하이스 탭, 드릴, 엔드밀</li>
-                    <li>코발트 하이스(Co 5%, 8%)</li>
-                    <li>하이스 바이트, 호브 커터</li>
-                    <li>슬리팅 소 (Slitting Saw)</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>특수금속 및 공구</h3>
-                <ul>
-                    <li>인코넬, 티타늄, 구리(동) 등</li>
-                    <li>사용 가능한 미사용 신품 공구</li>
-                    <li>공장 정리 폐쇄 공구 일괄 매입</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<!-- ABOUT -->
+<section id="about">
+<div class="section-title">
+<h2>왜 초하금속인가?</h2>
+<div></div>
+</div>
 
-    <section id="contact">
-        <div class="section-title">
-            <h2>빠른 매입 문의</h2>
-            <div></div>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>상담 시간 내 항시 대기</h3>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <div><strong>대표 번호</strong><br>010-9322-0989</div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-clock"></i>
-                    <div><strong>평일/토요일</strong><br>08:00 - 22:00</div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-comment"></i>
-                    <div><strong>카카오톡</strong><br>아이디로 추가 후 문의 가능</div>
-                </div>
-            </div>
-            <form id="contact-form">
-                <input type="text" name="user_name" placeholder="성함 또는 업체명" required>
-                <input type="tel" name="user_tel" placeholder="연락처" required>
-                <textarea name="message" rows="5" placeholder="매입 희망 품목 및 수량을 적어주세요." required></textarea>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">견적 요청하기</button>
-            </form>
-        </div>
-    </section>
+<div class="grid">
+<div class="card">
+<h3>최고 시세 반영</h3>
+<p>국제 금속 시세 반영하여 최적 매입가 제공</p>
+</div>
+<div class="card">
+<h3>전국 출장 가능</h3>
+<p>경남·경북·울산·대구 공단 출장 매입</p>
+</div>
+<div class="card">
+<h3>정직한 계량</h3>
+<p>정밀 저울로 현장 직접 계량</p>
+</div>
+</div>
+</section>
 
-    <div class="floating-contact">
-        <a href="https://qr.kakao.com/talk/I80fOKDSRthUA0sbB50ba9MfDOU-" target="_blank" class="float-btn kakao"><i class="fas fa-comment"></i></a>
-        <a href="tel:010-9322-0989" class="float-btn phone"><i class="fas fa-phone"></i></a>
-    </div>
+<!-- ITEMS -->
+<section id="items" style="background:#f4f7fa;">
+<div class="section-title">
+<h2>매입 품목 안내</h2>
+<div></div>
+</div>
+
+<div class="grid">
+<div class="card">
+<h3>폐초경 (Carbide)</h3>
+<ul>
+<li>인써트팁</li>
+<li>초경 엔드밀, 드릴</li>
+<li>초경 덩어리</li>
+<li>슬러지(가루)</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>폐하이스 (HSS)</h3>
+<ul>
+<li>하이스 탭, 드릴</li>
+<li>코발트 하이스</li>
+<li>하이스 커터</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>특수금속</h3>
+<ul>
+<li>인코넬, 티타늄, 구리</li>
+<li>신품 공구</li>
+<li>공장 정리 일괄 매입</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 건의 / 오류 제보 -->
+<section id="report">
+<div class="section-title">
+<h2>사이트 오류 제보 및 건의</h2>
+<div></div>
+</div>
+
+<div class="card">
+<p>
+사이트 이용 중 오류 발견 또는 개선 건의 사항은 아래 이메일로 보내주세요.
+</p>
+
+<p style="font-size:1.2rem; font-weight:bold; margin:10px 0;">
+📧 kminjae803@naver.com
+</p>
+
+<p>
+메일을 보내기 어려운 분들께는 정말 죄송합니다.
+</p>
+
+<hr style="margin:20px 0;">
+
+<p><b>메일 작성 양식 안내</b></p>
+<p>제목: <b>초하금속 사이트 (건의/오류 제보)</b></p>
+<p>내용은 구체적으로 작성해 주시면 사이트 운영에 큰 도움이 됩니다.</p>
+</div>
+</section>
+
+<!-- FLOAT -->
+<div class="floating-contact">
+<a href="https://qr.kakao.com/talk/I80fOKDSRthUA0sbB50ba9MfDOU-" target="_blank" class="float-btn kakao"><i class="fas fa-comment"></i></a>
+<a href="tel:010-9322-0989" class="float-btn phone"><i class="fas fa-phone"></i></a>
+</div>
+
+<!-- 오늘 방문자 표시 -->
+<div id="today-visitors">
+📊 오늘 방문자: <span id="todayCount">0</span>명
+</div>
+
+<!-- SCRIPT -->
+<script>
+// 팝업
+function closePopup() {
+document.getElementById("popup").style.display = "none";
+}
+
+function hideToday() {
+const today = new Date().toDateString();
+localStorage.setItem("popupHideDate", today);
+closePopup();
+}
+
+window.onload = function () {
+const hideDate = localStorage.getItem("popupHideDate");
+const today = new Date().toDateString();
+if (hideDate === today) {
+document.getElementById("popup").style.display = "none";
+}
+};
+
+// 오늘 방문자 카운트
+const today = new Date().toISOString().slice(0, 10);
+const namespace = "choha-metals-site";
+const key = "today-" + today;
+
+fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+.then(res => res.json())
+.then(data => {
+document.getElementById("todayCount").innerText = data.value;
+})
+.catch(() => {
+document.getElementById("todayCount").innerText = "집계 오류";
+});
+</script>
 
 </body>
 </html>
